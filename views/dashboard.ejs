@@ -1,0 +1,68 @@
+<style>
+  .cards-list {
+    width: 100%;
+    display: flex;
+    flex-flow: row;
+    justify-content: space-around;
+    text-align: center;
+  }
+
+  .card {
+    width: 135px;
+    height: 135px;
+    border-radius: 40px;
+    box-shadow: 5px 5px 30px 7px rgba(0, 0, 0, 0.25),
+      -5px -5px 30px 7px rgba(0, 0, 0, 0.22);
+    cursor: pointer;
+    transition: 0.4s;
+    margin-bottom: 70px;
+  }
+
+  .card .card_image {
+    width: inherit;
+    height: inherit;
+  }
+
+  .card .card_image img {
+    width: inherit;
+    height: inherit;
+    object-fit: cover;
+  }
+
+  .card .card_title {
+    color: white;
+    background-color: gainsboro;
+    font-size: 13px !important;
+    direction: rtl;
+    float: right;
+  }
+
+  .card:hover {
+    transform: scale(0.9, 0.9);
+    box-shadow: 5px 5px 30px 15px rgba(0, 0, 0, 0.25),
+      -5px -5px 30px 15px rgba(0, 0, 0, 0.22);
+  }
+  @media all and (max-width: 500px) {
+    .card-list {
+      flex-flow: column;
+    }
+  }
+</style>
+
+<h1>Dashboard</h1>
+<p>Welcome <%= user.name %></p>
+<a href="/users/logout">Logout</a>
+<div>
+  <% for(var i=0; i<50; i++) {%>
+  <a href="dashboard/<%= taghche.books[i].id %>">
+    <div>
+      <div>
+        <img src="<%= taghche.books[i].image %>" />
+      </div>
+      <div>
+        <p><%= taghche.books[i].name %></p>
+      </div>
+    </div>
+  </a>
+  <% } %> >
+</div>

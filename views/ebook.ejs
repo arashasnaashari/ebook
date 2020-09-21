@@ -1,0 +1,150 @@
+<style>
+  h1 {
+    font-size: 28px;
+    font-weight: 700;
+    margin-bottom: 5px;
+  }
+
+  .price {
+    margin-bottom: 10px;
+  }
+
+  .wrapper {
+    margin: 0 auto;
+    width: 860px;
+  }
+
+  .columns {
+    margin: 0 auto;
+    max-width: 900px;
+  }
+
+  .details {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    float: right;
+  }
+
+  .thumbnail-container {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    float: right;
+  }
+
+  .price {
+    font-size: 20px;
+    color: #777474;
+  }
+
+  .wishlist-container {
+    padding-left: 0;
+  }
+
+  #header {
+    width: 100%;
+    text-align: center;
+    background: white;
+    padding: 5px;
+    /*box-shadow: 0 10px 17px 0px #c0c0c0;*/
+    box-shadow: 0 5px 10px 0px #dbd7d7;
+  }
+  #header img {
+    max-width: 30px;
+  }
+
+  .columns {
+    margin-top: 30px;
+    display: flex;
+    float: right;
+  }
+
+  .button {
+    width: 100%;
+    border-radius: 0;
+  }
+
+  .select,
+  select {
+    width: 100%;
+    border-radius: 0 !important;
+  }
+
+  #wishlist-container {
+    padding-left: 0;
+  }
+
+  #buy-container {
+    padding-right: 0;
+  }
+
+  .small-text {
+    font-size: 14px;
+  }
+
+  .small-text span {
+    font-weight: bold;
+  }
+
+  .buy-button {
+    background: #ff6900;
+    color: white;
+    border: none;
+  }
+
+  .buy-button:hover,
+  .buy-button:active,
+  .buy-button:focus {
+    color: white;
+    opacity: 0.9;
+  }
+
+  a {
+    color: #ff6900;
+  }
+  a:hover {
+    color: #ff6900;
+    opacity: 0.8;
+  }
+
+  @media only screen and (max-width: 769px) {
+    #wishlist-container,
+    #buy-container {
+      padding: 0 0 15px 0;
+    }
+  }
+</style>
+
+<div id="header"><%= user.name %></div>
+
+<div class="columns">
+  <div class="column">
+    <div class="thumbnail-container">
+      <img
+        class="drift-demo-trigger"
+        data-zoom="<%= book.image %> "
+        src="<%= book.image %> "
+      />
+    </div>
+  </div>
+
+  <div class="column">
+    <div class="details">
+      <h1 style="direction: rtl !important"><%= book.name %></h1>
+    </div>
+    <div class="here"></div>
+  </div>
+</div>
+
+<a href="/dashboard/book">خواندن</a>
+<script src="https://awik.io/demo/webshop-zoom/Drift.min.js"></script>
+<script>
+  new Drift(document.querySelector(".drift-demo-trigger"), {
+    paneContainer: document.querySelector(".here"),
+    inlinePane: 769,
+    inlineOffsetY: -85,
+    containInline: true,
+    hoverBoundingBox: true,
+  });
+</script>
