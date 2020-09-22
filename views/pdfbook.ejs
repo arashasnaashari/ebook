@@ -10,80 +10,38 @@
         transform: scale(1);
       }
       html.dark-mode {
-        filter: invert(100%);
+        filter: invert(90%);
       }
-      img {
-        filter: invert(100%);
-      }
-      html,
-      body {
-        color: #222;
-        background-color: #fff;
-        height: 100%;
-      }
-
-      /*
- * To make things look better
- */
       .dark-mode-switch {
-        position: fixed;
+        position: absolute;
         right: 1rem;
         top: 1rem;
         padding: 0.5rem 1rem;
         background-color: #ddd;
+        z-index: 20;
       }
-
-      img {
-        float: left;
-        max-width: 40%;
-        margin-right: 2em;
-      }
-
-      body {
-        padding: 1em 2em;
-      }
-
-      p {
-        max-width: 40em;
-      }
-
-      h1 {
-        font-family: Georgia, Times, Times New Roman, serif;
-      }
-
-      html {
-        margin: 0;
-        padding: 0;
-        line-height: 1.5;
-      }
-      * {
-        margin: 0;
-        padding: 0;
-      }
-
       .top-bar {
-        background: #333;
-        color: #fff;
+        background: white;
+        color: black;
         padding: 1rem;
       }
-
       .btn {
-        background: coral;
-        color: #fff;
-        border: none;
+        background: transparent;
+        color: black;
+        border: 1px black solid;
         outline: none;
         cursor: pointer;
         padding: 0.7rem 2rem;
       }
-
-      .btn:hover {
-        opacity: 0.9;
+      .row1 {
+        background-color: white;
+        display: flex;
+        flex-flow: row;
+        justify-content: space-between;
       }
-
       .page-info {
         margin-left: 1rem;
       }
-
       .error {
         background: orangered;
         color: #fff;
@@ -94,22 +52,23 @@
   </head>
   <body>
     <div class="top-bar">
-      <button class="btn" id="prev-page">
-        <i class="fas fa-arrow-circle-left"></i> Prev Page
-      </button>
-      <button class="btn" id="next-page">
-        Next Page <i class="fas fa-arrow-circle-right"></i>
-      </button>
       <span class="page-info">
         Page <span id="page-num"></span> of <span id="page-count"></span>
       </span>
     </div>
-
+    <div class="row1">
+      <button class="btn" id="prev-page">
+        <i class="fas fa-arrow-circle-left"></i> <
+      </button>
+      <button class="btn" id="next-page">
+        > <i class="fas fa-arrow-circle-right"></i>
+      </button>
+    </div>
     <div class="dark-mode-switch">
       <input
         id="dark-mode"
         type="checkbox"
-        onclick="document.querySelector('').classList.toggle('dark-mode')"
+        onclick="document.documentElement.classList.toggle('dark-mode')"
       />
       <label for="dark-mode">Dark mode</label>
     </div>
@@ -132,9 +91,9 @@
       const scale = 1.5,
         canvas = document.querySelector("#pdf-render"),
         ctx = canvas.getContext("2d");
-      ctx.fillStyle = "#FF0000";
-      ctx.font = `990px Arial`;
-      ctx.fillText("Hello World", 10, 50);
+      ctx.fillStyle = "black";
+      ctx.font = `30px Arial`;
+      ctx.fillText("loading ... ", 10, 50);
       // Render the page
       const renderPage = (num) => {
         pageIsRendering = true;
